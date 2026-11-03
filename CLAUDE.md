@@ -10,7 +10,7 @@ Follow every rule in this file:
 
 ## The idea
 
-At the gym, Matt was juggling Google Sheets for the workout program, a timer app with annoying ads, a counter app for sets, and Spotify for music. GymBuddy puts all of that in one app. It was built for Matt's personal use in real workouts.
+At the gym, Matt was juggling Google Sheets for the workout program, a timer app with annoying ads, a counter app for sets, and Spotify for music. GymBuddy puts all of that in one app. Matt uses it in real workouts, and the new version is meant for the App Store.
 
 ## Why we are rebuilding
 
@@ -23,18 +23,35 @@ GymBuddy 1.0 was built with Expo and React Native. Moving to Swift is meant to f
 
 ## Goals
 
+- Release on the App Store, flexible enough for people who train differently from Matt.
 - Keep what makes the app useful: the program builder, the rest timer with Live Activity, the set counter, and Spotify controls in one place.
+- Add a Tracker page with workout history.
+- Rotate the workout day and scheme automatically, with manual override.
 - Fix the known problems in each section as we rebuild that section, rather than carrying them over. They are listed in `GYMBUDDY_1.md`.
 - Build with Apple's own tools wherever they do the job, to avoid fighting third-party packages again.
 
+## Pages
+
+Home, Programs, Music, and Tracker (new).
+
+## Planning docs
+
+Each doc gives a high-level overview of its area, then records the decisions and trade-offs made along the way. Read only the ones relevant to the current work.
+
+- `docs/data.md`: how programs and history are stored, and how rotation works
+
+Planned: `docs/home.md`, `docs/programs.md`, `docs/music.md`, and `docs/tracker.md`.
+
+## Where we are
+
+Planning only. No app code exists yet. The data model is settled in `docs/data.md`. Next step: plan the Programs page in `docs/programs.md`.
+
 ## Still undecided
 
-We will work through these together:
-
-- Which features to keep, change, or add
+- Which features to keep, change, or add on each page
 - The look and design of the app
-- How data is stored, and whether existing data on Matt's phone needs to move over
 - Which section to build first
+- Whether Spotify's developer limits allow a public App Store release. This has not been verified and should be checked when planning Music
 
 ## GymBuddy 1.0 reference
 
