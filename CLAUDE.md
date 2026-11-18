@@ -39,17 +39,20 @@ Home, Programs, Music, and Tracker (new).
 Each doc gives a high-level overview of its area, then records the decisions and trade-offs made along the way. Read only the ones relevant to the current work.
 
 - `docs/data.md`: how programs and history are stored, and how rotation works
+- `docs/home.md`: the workout screen, including logging sets, the rest timer, and supersets
 
-Planned: `docs/home.md`, `docs/programs.md`, `docs/music.md`, and `docs/tracker.md`.
+Planned: `docs/programs.md`, `docs/music.md`, `docs/tracker.md`, and a doc for the overall layout and Settings.
 
 ## Where we are
 
-Planning only. No app code exists yet. The data model is settled in `docs/data.md`. Next step: plan the Programs page in `docs/programs.md`.
+Planning only. No app code exists yet. The data model is settled in `docs/data.md`. Home's behavior and layout (pass 1) are settled in `docs/home.md`, with mockups linked there. Next step: Home's visual style (pass 2), as planned at the end of `docs/home.md`.
 
 ## Still undecided
 
 - Which features to keep, change, or add on each page
-- The look and design of the app
+- The look and design of the app. Direction so far: light and dark mode, modern, high-tech, smooth, and quick to use
+- The overall layout: the tab bar, where Settings lives, and whether the timer appears on every page
+- How the Settings screen is designed
 - Which section to build first
 - Whether Spotify's developer limits allow a public App Store release. This has not been verified and should be checked when planning Music
 

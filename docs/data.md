@@ -42,9 +42,9 @@ From the seeded program in `../GymBuddy/db/dbFunctions.ts:94`:
 - **Every set must hit its number at the planned weight or heavier** to earn a jump.
 - **The jump popup appears after all sets of the exercise are finished,** as a yes/no, and the amount can be changed there.
 - **Jump size is per exercise,** with a default of 2.5 lb for exercises that do not set their own.
-- **Home has two separate weight controls.** "Today" changes the weight for all remaining sets at that weight in this workout, and leaves the plan alone. A separate button edits the number in the program.
+- **Home changes weight for today only.** A changed weight applies to "This set" or "Rest of today" (every remaining set at that weight in this workout), and leaves the plan alone. Home has no button to edit the program. That is done in Programs.
 - **A partial workout counts as done.** One completed set marks that day as done at rollover.
-- **Order and superset changes during a workout never save to the plan.** Those are edited in Programs. Weight is the only plan number that can change from Home.
+- **Order and superset changes during a workout never save to the plan.** Those are edited in Programs. The only way Home changes the plan is accepting a jump in the jump popup.
 - **Warm-up sets are not logged.**
 - **The database is SQLite through SQLiteData,** an MIT-licensed library built on GRDB. Matt already knows SQL, Tracker benefits from database-level totals, and upgrade steps are explicit and testable. SwiftData and Core Data were considered and passed over. The costs are relying on a small company's maintenance and about 12 extra packages.
 - **Each set has an optional RPE (how hard it felt), and each workout has optional notes.** Matt will not use these, but other people will.
@@ -78,14 +78,24 @@ Exercise                  name, is it bodyweight, jump size (optional), archived
 Program                   name, archived?, rotation settings
 ├── Scheme                name, position (5x5, 5x3, 531)
 └── Day                   name, color, position (Push, Pull, Upper, Lower)
-    └── DayExercise       which Exercise, position, superset group (optional)
-        └── PlannedSet    scheme (blank = all schemes), position, weight, reps, rest
+    ├── DayExercise       which Exercise, position, superset (optional)
+    │   └── PlannedSet    scheme (blank = all schemes), position, weight, reps,
+    │                     rest (blank inside a superset)
+    └── Superset          the exercises it groups
+        └── SupersetRound scheme (blank = all schemes), position, rest
 ```
 
 - **One Day, not one per scheme.** Push exists once. Bench inside Push has a set list for each scheme, and accessories have one list marked "all schemes". This reduces 30 days to 10.
 - **A program with one scheme is just a simple program.** People who do not rotate never need to think about schemes.
-- **A superset is a label shared by two exercises,** not a special type. This removes 1.0's duplicated superset logic and makes uneven set counts simple. Each exercise just has its own set list.
-- **Rest belongs to the set in a specific day,** which removes the need for `Dips - SS`.
+- **A superset groups any number of exercises, and each keeps its own set list.** That keeps uneven set counts simple and avoids 1.0's duplicated superset logic. How a superset is worked on Home is in `docs/home.md`.
+- **Rest belongs to the set in a specific day,** which removes the need for `Dips - SS`. Inside a superset, rest belongs to the superset instead.
+- **A superset's rest is a list of rounds,** one rest per round, so rest can differ by set as well as by scheme. It does not live on the exercises' sets, because order within a superset changes from workout to workout.
+- **A superset's rest follows its exercises.** If any exercise in it has a list per scheme, the superset has a rest list per scheme too, each starting as a copy. If none does, it has one "all schemes" list.
+  - An exercise with per-scheme lists joining the superset splits its rest into per-scheme copies.
+  - A new scheme in the program copies the previous scheme's rest list, as sets do.
+  - When no exercise needs per-scheme lists any more, the rest lists merge back into one. If they differ, the app asks which to keep.
+  - Each scheme's rest list has as many rounds as the exercise with the most sets in that scheme. Adding a set adds a round (copying the one above), and removing one removes it. A round with no rest uses the last round's rest.
+- **Rejected: a superset as a plain label shared by exercises,** with rest kept on each set. Rest could not then be set per scheme when the superset mixes a per-scheme exercise with an all-schemes one (see `docs/home.md`).
 - **Days belong to one program** rather than being shared. A "duplicate program" action covers the reuse case. Only exercises are shared between programs.
 - **Everything has a permanent ID,** so renaming is one simple change.
 
@@ -162,6 +172,7 @@ Each program remembers its current scheme, when that scheme's week began, and wh
 3. After rollover, the next undone day appears
 4. Days without a workout change nothing. The same day waits
 5. Choosing a different day is a manual override. Doing Lower early marks Lower as done, and the skipped day stays next
+6. Choosing a different scheme is a permanent change to the rotation. It becomes the scheme for the rest of the week, and the order carries on from it like a wheel. Overriding 5x5 to 531 makes next week 5x5, not 5x3
 
 **The scheme follows the calendar:** when the week is up, the scheme moves on (5x5 → 5x3) even if days were missed.
 
