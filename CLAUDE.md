@@ -45,12 +45,12 @@ Planned: `docs/programs.md`, `docs/music.md`, `docs/tracker.md`, and a doc for t
 
 ## Where we are
 
-Planning only. No app code exists yet. The data model is settled in `docs/data.md`. Home's behavior and layout (pass 1) are settled in `docs/home.md`, with mockups linked there. Next step: Home's visual style (pass 2), as planned at the end of `docs/home.md`.
+Planning only. No app code exists yet. The data model is settled in `docs/data.md`. Home's behavior, layout (pass 1), and visual style (pass 2, Liquid Glass) are settled in `docs/home.md`, with mockups linked there. Next step: plan the Programs section in `docs/programs.md`.
 
 ## Still undecided
 
 - Which features to keep, change, or add on each page
-- The look and design of the app. Direction so far: light and dark mode, modern, high-tech, smooth, and quick to use
+- How the Liquid Glass style chosen for Home (`docs/home.md` "Visual style") carries over to the other pages
 - The overall layout: the tab bar, where Settings lives, and whether the timer appears on every page
 - How the Settings screen is designed
 - Which section to build first

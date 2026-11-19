@@ -2,7 +2,7 @@
 
 The screen Matt uses mid-workout: it shows today's day and scheme, the current exercise and set, the rest timer, and a Done button that logs each set to history.
 
-**Status:** behavior and layout settled in planning (pass 1), not built. The visual style (pass 2) is next. See "Where we left off".
+**Status:** behavior, layout (pass 1), and visual style (pass 2) settled in planning, not built. See "Where we left off".
 
 ## What Matt is trying to do
 
@@ -26,10 +26,11 @@ From `GYMBUDDY_1.md` and the screenshots in `../GymBuddy/assets/images/readme/`:
 
 **Canvas:** https://claude.ai/artifact/P5uocnirXmJ72uDcjekpkt (private to Matt; a Claude Design canvas)
 
-- **Page "Home · every feature":** the agreed layout, one screen per feature. This is the reference for pass 2.
+- **Page "Pass 2 · Liquid Glass":** the agreed look. All nine screens below, light mode on the top row and dark mode underneath, shown on Push day. This is the reference for building Home.
+- **Page "Home · every feature":** the agreed layout as grey boxes, one screen per feature. They decide where things go, not how they look.
 - **Page "Pass 1 options":** the first three layout options (A, B, C), kept for history.
 
-All screens are grey boxes on purpose: they decide where things go, not how they look. "Cable Fly" in screens 6 and 9 is filler, not from Matt's program.
+"Cable Fly" in screens 6 and 9 is filler, not from Matt's program.
 
 | # | Screen | Shows |
 |---|---|---|
@@ -43,7 +44,7 @@ All screens are grey boxes on purpose: they decide where things go, not how they
 | 8 | Jump popup | "Go up next time?", 215 → 217.5 (tappable), matching places, See all, Not yet / Jump |
 | 9 | Day done | "Push done", sets / time / PRs, every exercise with its +jump, "Start Pull now" |
 
-**Editing the canvas in a new session:** the local files were in a temporary scratchpad folder and are gone. Read the canvas back with the Artifact tool (`action: "read"` on the URL above, then each `project/*.dc.html` file) before changing it.
+**Editing the canvas in a new session:** the local files were in a temporary scratchpad folder and are gone. Read the canvas back with the Artifact tool (`action: "read"` on the URL above, then each `project/*.dc.html` file) before changing it. The pass 2 screens are `project/G*.dc.html`. Each dark screen (`G*Dark.dc.html`) just imports its light screen with `dark` turned on, so style changes go in the light file.
 
 ## Decided
 
@@ -149,25 +150,31 @@ How the superset's rest is stored is in `docs/data.md` under "The plan".
 ## Look and feel
 
 - **Light and dark mode.**
-- **Modern, high-tech, and smooth,** with a very quick, intuitive UI. Matt has no reference apps in mind and is trusting judgement here.
+- **Modern, high-tech, and smooth,** with a very quick, intuitive UI.
 - **Minimal and clean.** No labels where an icon is enough. The user isn't stupid.
-- **Planned in two passes:** layout first (pass 1, done), then the visual style (pass 2, next).
+- **Planned in two passes:** layout first (pass 1), then the visual style (pass 2). Both are done.
+
+### Visual style (pass 2)
+
+- **Liquid Glass,** Apple's iOS 26 look. Panels, the day pill, set chips, and the weight and reps boxes are frosted see-through glass with a bright edge. SwiftUI provides this effect itself, which fits "Apple's own tools" and means no custom design system to maintain.
+- **The day's color tints the whole screen:** the day pill text, done set chips, the current item's outline, the Done button, the timer, and the glow behind the glass.
+- **Each day's color is picked by the user** when making the day in Programs, from Apple's system colors, with a suggested default. The color is already part of the Day in `docs/data.md` "The plan".
+- **A soft glow in the day's color** sits behind the glass at the top right, with a faint warm glow at the bottom left. It gives the glass something to show through.
+- **Done, the timer, and main actions are solid day color,** not tinted glass. They are the only solid things on a see-through screen, so the eye goes straight to them. This covers Done, the timer, Save, Switch, and Jump. Secondary actions (Not yet, Start Pull now, Undo, Select) are glass.
+- **The timer is the Done button in the same color,** with a darker strip on the left showing how much rest has passed, so Done turning into the timer reads as the same button changing.
+- **The current item gets a light day-color fill and a day-color outline:** the current set chip, the "Now" set, the selected day, the wheel's selected value, the new jump weight, and the current exercise in the day list.
+- **Drawers and popups are floating glass panels** with a small gap from the screen edges, as iOS 26 does sheets. They are more solid than the main screen's glass so text stays readable, and the screen behind is dimmed.
+- **Apple's system font (SF Pro),** with numbers in equal-width digits so they don't jump around as they change. Weight and reps are 84 pt bold.
+- **Capsule shapes:** fully rounded buttons and chips, and rounded panels.
+- **Labels are in sentence case** ("Weight (lb)", "Day"), except small section tags like "NEXT UP".
+
+**Rejected:** dark tech / instrument (monospaced numbers, thin lines), bold athletic (heavy capitals, square corners), and soft minimal (SF Rounded, soft shadows). Also rejected: **tinted glass for Done and the timer**, which blended in too much.
+
+**Not yet decided:** motion (Done turning into the timer, drawers sliding, Undo appearing). It is left until building, since SwiftUI's built-in animations are the starting point.
 
 ## Where we left off
 
-Pass 1 (layout) is finished, and Matt is happy with the nine screens on the "Home · every feature" page of the canvas. The doc edits from this session (this file, `docs/data.md`, and `CLAUDE.md`) are not committed yet.
-
-## Next: pass 2 (visual style)
-
-Pass 2 keeps the agreed layout and decides how it looks:
-
-- **Colors:** background, accent, and how each day's color shows up (1.0 showed Push in red)
-- **Fonts:** which typeface, and how big and bold the numbers are
-- **Shapes:** corner rounding, borders vs shadows, how much depth
-- **Light and dark mode:** both versions
-- **Motion,** described rather than built: Done turning into the timer, drawers sliding, Undo appearing
-
-**Plan:** make 2–3 different style directions on the Lifting and Resting screens, each in light and dark, on a new page of the same canvas. Matt picks one or mixes them. Then apply the chosen style to all nine screens.
+Pass 1 (layout) and pass 2 (visual style) are finished. Matt is happy with the 18 screens on the "Pass 2 · Liquid Glass" page of the canvas. Next is planning the Programs section, in its own `docs/programs.md`.
 
 ## Still open
 
