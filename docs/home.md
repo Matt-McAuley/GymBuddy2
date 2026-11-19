@@ -97,6 +97,8 @@ From `GYMBUDDY_1.md` and the screenshots in `../GymBuddy/assets/images/readme/`:
 - **Tap an exercise to jump to it.** After it, Home continues with the next exercise in the list, not the one that was passed over. A passed-over exercise stays undone unless it is dragged into place. There is no separate Skip action.
 - **Hold an exercise to open its sets** as chips. Tapping a chip edits that set with the scroll wheel. Rows show no chips otherwise, so a tap always means "jump".
 - **Drag ≡ to reorder.**
+- **Add an exercise or a set for today only,** for when a machine is taken. Adding an exercise uses the same search and "New exercise" button as Programs (`docs/programs.md` "Adding an exercise to a day"). It is logged to history and never changes the plan.
+- **Programs edits wait for the next workout.** Home locks in a copy of the day when the workout starts (`docs/programs.md` "Editing a day that's in progress").
 - **The help line reads:** "Tap to go · Hold to edit sets · Drag ≡ to reorder", then "Changes only apply to today's workout".
 
 **Rejected: tap to expand a row, with a "Go to" button inside** (2 taps to jump), and **separate tap targets for the name and the chips** (too easy to mis-tap mid-workout).
@@ -125,7 +127,7 @@ How the superset's rest is stored is in `docs/data.md` under "The plan".
 |---|---|
 | Normal exercise | That set's rest |
 | Planned superset, including leftover rounds | That round's rest, for the current scheme |
-| Split from a planned superset mid-workout | Each exercise uses its round's rest |
+| Split from a planned superset mid-workout | Each exercise uses its own remembered rest, or the round rest if it never had one |
 | Grouped at the gym | The longest rest involved. An exercise from a planned superset contributes its round rest |
 
 **Rejected: storing rest on the "second" exercise.** The order changes from workout to workout, so "second" has no fixed meaning.
@@ -178,8 +180,9 @@ Pass 1 (layout) and pass 2 (visual style) are finished. Matt is happy with the 1
 
 ## Still open
 
+- Where "Add exercise" and "Add set" go in the layout (decided in `docs/programs.md`, not yet drawn)
 - How pairing works in detail ("Select" in the day list is sketched, not decided)
 - The kg wheel step (see "Logging sets")
-- Empty states: no program, no days, no exercises
+- Empty states: no program shows a welcome screen with a button to create the first program (`docs/programs.md` "Nothing empty"). Empty days and programs can't exist. The welcome screen's design is still open
 - What the Live Activity shows, including mid-superset
 - The overall layout (tab bar, where Settings lives, whether the timer shows on every page), planned in its own doc

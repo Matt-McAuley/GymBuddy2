@@ -33,7 +33,7 @@ From the seeded program in `../GymBuddy/db/dbFunctions.ts:94`:
 ## Decided
 
 - **Plan and history are separate.** History keeps its own copy of the numbers, so editing a plan never changes past workouts.
-- **Exercises are archived, not deleted,** so history keeps working.
+- **Exercises are archived, not deleted,** so history keeps working. Programs, days, and schemes are archived too (`docs/programs.md` "Archiving").
 - **An exercise is just a name.** "Bench" is one exercise. The program sets weight, reps, and rest.
 - **Sets can be overridden while lifting.** The actual weight and reps get recorded.
 - **Workouts start on the first completed set and finish on the last completed set.** There is no Start or Finish button.
@@ -80,7 +80,7 @@ Program                   name, archived?, rotation settings
 └── Day                   name, color, position (Push, Pull, Upper, Lower)
     ├── DayExercise       which Exercise, position, superset (optional)
     │   └── PlannedSet    scheme (blank = all schemes), position, weight, reps,
-    │                     rest (blank inside a superset)
+    │                     rest (kept but unused inside a superset)
     └── Superset          the exercises it groups
         └── SupersetRound scheme (blank = all schemes), position, rest
 ```
@@ -88,7 +88,7 @@ Program                   name, archived?, rotation settings
 - **One Day, not one per scheme.** Push exists once. Bench inside Push has a set list for each scheme, and accessories have one list marked "all schemes". This reduces 30 days to 10.
 - **A program with one scheme is just a simple program.** People who do not rotate never need to think about schemes.
 - **A superset groups any number of exercises, and each keeps its own set list.** That keeps uneven set counts simple and avoids 1.0's duplicated superset logic. How a superset is worked on Home is in `docs/home.md`.
-- **Rest belongs to the set in a specific day,** which removes the need for `Dips - SS`. Inside a superset, rest belongs to the superset instead.
+- **Rest belongs to the set in a specific day,** which removes the need for `Dips - SS`. Inside a superset, rest belongs to the superset instead. Each exercise keeps its own rest in the background, so splitting the superset brings it back (`docs/programs.md` "Superset page").
 - **A superset's rest is a list of rounds,** one rest per round, so rest can differ by set as well as by scheme. It does not live on the exercises' sets, because order within a superset changes from workout to workout.
 - **A superset's rest follows its exercises.** If any exercise in it has a list per scheme, the superset has a rest list per scheme too, each starting as a copy. If none does, it has one "all schemes" list.
   - An exercise with per-scheme lists joining the superset splits its rest into per-scheme copies.
@@ -190,7 +190,9 @@ Weights are stored in one internal unit and converted only for display. Stored n
 
 ### Settings
 
-Weight unit, rollover time, week reset day, when the scheme changes, whether empty weeks advance the scheme, default jump size for each unit, and active program.
+Weight unit, rollover time, and default jump size for each unit.
+
+The rotation settings (week reset day, when the scheme changes, and whether empty weeks advance the scheme) live on each program's page, and the active program is chosen there with "Use this program" (`docs/programs.md` "Program page").
 
 ## What each page needs
 

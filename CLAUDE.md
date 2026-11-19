@@ -40,12 +40,13 @@ Each doc gives a high-level overview of its area, then records the decisions and
 
 - `docs/data.md`: how programs and history are stored, and how rotation works
 - `docs/home.md`: the workout screen, including logging sets, the rest timer, and supersets
+- `docs/programs.md`: building programs, schemes, days, sets, supersets, and the shared exercise list
 
-Planned: `docs/programs.md`, `docs/music.md`, `docs/tracker.md`, and a doc for the overall layout and Settings.
+Planned: `docs/music.md`, `docs/tracker.md`, and a doc for the overall layout and Settings.
 
 ## Where we are
 
-Planning only. No app code exists yet. The data model is settled in `docs/data.md`. Home's behavior, layout (pass 1), and visual style (pass 2, Liquid Glass) are settled in `docs/home.md`, with mockups linked there. Next step: plan the Programs section in `docs/programs.md`.
+Planning only. No app code exists yet. The data model is settled in `docs/data.md`. Home's behavior, layout (pass 1), and visual style (pass 2, Liquid Glass) are settled in `docs/home.md`, with mockups linked there. Programs' behavior is settled in `docs/programs.md`. Next step: Programs layout (pass 1) as grey-box mockups, starting with a small comparison of how to switch between Programs and Exercises. The plan for it is in `docs/programs.md` "Where we left off".
 
 ## Still undecided
 
