@@ -73,6 +73,12 @@ One plain list, no group headings:
 - **No separate welcome screen.** Home with no program shows "Create your first program" (`docs/programs.md` "Nothing empty").
 - **lb or kg is the walkthrough's first step:** Step 1 of 5, "lb or kg?" with two big buttons, "You can change this in Settings" below, and "Next: name". It comes before naming the program. Every weight typed after it uses that unit. The steps are then unit → name → days → adding exercises → schemes.
 
+### App
+
+- **Portrait only, English only.**
+- **Name: GymBuddy.** Several App Store apps already use "GymBuddy", including two with exactly that name, so the store listing likely needs a subtitle or variant (such as "GymBuddy: Lift Log"). The name under the icon can stay "GymBuddy". Check in App Store Connect when registering.
+- **Icon: a flexing metal robot like 1.0's** (`../GymBuddy/assets/images/icon.png`): chrome armor, both arms up in a double-biceps pose, a glowing chest core. It must be original, not a copy of a Marvel character such as Ultron, since App Review rejects copied characters.
+
 ## Mockups
 
 **Canvas:** https://claude.ai/artifact/P5uocnirXmJ72uDcjekpkt (the same canvas as Home, Programs, and Tracker), page "Layout · timer bar". Light mode only, on Tracker's Bench page, mid-rest on Push day.
@@ -99,8 +105,7 @@ The tab bar on these screens is the agreed design. Under B, the second row is B 
 ## Still open
 
 - The tab bar is still a placeholder on the Home, Programs, and Tracker mockups
-- The help page's wording. The Jumps draft is too wordy: keep every topic short, plain, and to the point (`RULES.md` rule 5)
-- The other help topics aren't written yet
+- Help wording is written during the build, very short (`RULES.md` rule 5), and Matt reviews it after. The Jumps draft on the canvas is too wordy
 
 ## Where we left off
 

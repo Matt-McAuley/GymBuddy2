@@ -18,7 +18,7 @@ GymBuddy 1.0 was built with Expo and React Native. Moving to Swift is meant to f
 
 - **Live Activities were the main pain.** The lock screen and Dynamic Island timer had to be written in Swift anyway, then bridged into the React Native app. That one feature took a large chunk of development time.
 - **React Native styling was annoying to work with.**
-- **Matt wants to learn iOS development.** This project is the way to learn it, so understanding the code matters as much as getting it working.
+- **Matt wanted to learn iOS development.** That is no longer a goal (2026-11-20). What matters now is clean, well-structured code that follows Swift and Apple conventions.
 - **Cross-platform support has no value here.** The app is iPhone-only.
 
 ## Goals
@@ -49,12 +49,17 @@ Each doc gives a high-level overview of its area, then records the decisions and
 
 ## Where we are
 
-Planning only. No app code exists yet. The data model is settled in `docs/data.md`. Home's behavior, layout (pass 1), and visual style (pass 2, Liquid Glass) are settled in `docs/home.md`, with mockups linked there. Programs' behavior and layout (pass 1, grey boxes) are settled in `docs/programs.md`, with mockups linked there. Programs' visual style (pass 2, Liquid Glass) is settled too: grey outside a day, the day's color inside one. Tracker's behavior, layout (pass 1, grey boxes), and visual style (pass 2, Liquid Glass) are settled in `docs/tracker.md`, with mockups linked there: grey, with day colors only as dots on the calendar and Log. The overall layout and Settings (behavior and Liquid Glass style) are settled in `docs/layout.md`, with mockups linked there: three tabs, a glass timer bar above the tab bar while resting, and a Settings gear on Programs. Next step: decide which section to build first.
+Planning is finished. No app code exists yet. The data model is settled in `docs/data.md`. Home's behavior, layout (pass 1), and visual style (pass 2, Liquid Glass) are settled in `docs/home.md`, with mockups linked there. Programs' behavior and layout (pass 1, grey boxes) are settled in `docs/programs.md`, with mockups linked there. Programs' visual style (pass 2, Liquid Glass) is settled too: grey outside a day, the day's color inside one. Tracker's behavior, layout (pass 1, grey boxes), and visual style (pass 2, Liquid Glass) are settled in `docs/tracker.md`, with mockups linked there: grey, with day colors only as dots on the calendar and Log. The overall layout and Settings (behavior and Liquid Glass style) are settled in `docs/layout.md`, with mockups linked there: three tabs, a glass timer bar above the tab bar while resting, and a Settings gear on Programs. Pre-build questions were answered on 2026-11-20 and written into each doc, including iCloud sync rules in `docs/data.md` "iCloud sync". Next step: build.
 
-## Still undecided
+## Building
 
-- Which features to keep, change, or add on each page
-- Which section to build first
+Matt is vibe coding this and won't be around during the build.
+
+- **The builder picks the build order** and decides small trade-offs without asking. Follow the docs. Where they're silent, make the sensible call and note it in the relevant doc.
+- **No tests.**
+- **Commit freely to a `build` branch** as work progresses, without asking (an exception to `RULES.md` rule 1, approved 2026-11-20). Never push, and never commit to main. Matt reviews the branch when he's back.
+- **Code quality comes first:** idiomatic SwiftUI, Apple's frameworks, and standard naming and structure.
+- **Target:** iOS 26 only, iPhone only, portrait, English. Same bundle ID as 1.0. Matt has a paid developer account.
 
 ## GymBuddy 1.0 reference
 

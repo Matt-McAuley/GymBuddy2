@@ -45,7 +45,8 @@ How the data model removes the per-scheme copies is in `docs/data.md` "The plan"
 - **Schemes:** add, rename, drag ≡ to reorder, archive. A new scheme starts as a copy of the scheme before it (`docs/data.md` "Making setup and updates fast").
 - **A "Schemes" toggle on the program page turns schemes on or off.** Off (the default for a new program): the program runs on one hidden default scheme, and nothing about schemes shows anywhere (no scheme list, no "Scheme changes" setting, no scheme controls on exercise pages). On: the scheme list and "Add scheme" appear, and scheme controls show even with one scheme.
 - **Turning schemes off hides them; it doesn't delete them.** Turn the toggle back on and the old schemes return as they were.
-- **Days:** add, drag ≡ to reorder, archive, and tap to open.
+- **Days:** add, drag ≡ to reorder, archive, and tap to open. "+ Add day" asks "New day" or "Copy from…", which copies a day from another program.
+- **Duplicate program and duplicate day are in the ··· menu.**
 - **Rotation settings live here, per program:** the week reset day, when the scheme changes ("every week" or "after all days are done"), and whether empty weeks advance the scheme. App-wide settings stay in Settings (`docs/data.md` "Settings").
 
 ### Day colors
@@ -208,4 +209,4 @@ Pass 1 (layout) and pass 2 (visual style) are finished. Matt is happy with the 2
 
 ## Still open
 
-- Layout of every screen
+- Nothing. Behavior, layout, and visual style are settled.

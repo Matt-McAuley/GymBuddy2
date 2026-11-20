@@ -194,17 +194,43 @@ Weight unit, rollover time, and default jump size for each unit (2.5 lb and 1 kg
 
 The rotation settings (week reset day, when the scheme changes, and whether empty weeks advance the scheme) live on each program's page, and the active program is chosen there with "Use this program" (`docs/programs.md` "Program page").
 
+### Other data decisions
+
+- **Exercise names are unique, ignoring case** ("bench" = "Bench"). Typing the name of an archived exercise offers to restore it. The app checks this itself, since synced tables can't have unique rules (see "iCloud sync").
+- **Reps are at least 1.** A set with 0 reps can't be logged.
+- **RPE has a column but no screen in version 1.** It is left in the tables so it can be added later without a migration. Workout notes do have a screen (`docs/tracker.md` "Workout summary").
+- **No data export** in version 1.
+
 ## What each page needs
 
 - **Programs:** build exercises, schemes, days, and planned sets. Needs a fast way to enter set lists, since the plan is typed in by hand.
 - **Home:** reads the plan and rotation, then writes history. Timer rest comes from the current planned set.
-- **Tracker:** reads history only, so nothing done there can affect the plan.
+- **Tracker:** reads history, and can fix or delete a past workout. Nothing done there can affect the plan.
 
-## Before building
+## iCloud sync
 
-Check SQLiteData's iCloud sync rules. They could not be confirmed during planning, and they may affect how tables are structured.
+Everything syncs through the user's private iCloud with SQLiteData's `SyncEngine`, including Settings and tips. Checked against SQLiteData 1.13's docs and source on 2026-11-20 (`Documentation.docc/Articles/CloudKitSync.md` in the package).
+
+**Rules the tables must follow:**
+
+- **Every table has a single primary key that is a UUID,** written as `"id" TEXT PRIMARY KEY NOT NULL ON CONFLICT REPLACE DEFAULT (uuid())`. No auto-increment integers, no compound keys, even on join tables.
+- **No UNIQUE constraints** except the primary key. `SyncEngine` throws on start if one exists. Uniqueness (exercise names) is checked in app code.
+- **Foreign keys use `ON DELETE CASCADE`, `SET NULL`, or `SET DEFAULT`.** `RESTRICT` and `NO ACTION` throw. Links from history to the plan use `SET NULL`, since history keeps copies of the names.
+- **After release, never remove or rename a column or table,** and never edit a shipped table definition. Adding tables is fine. An added column must be nullable, or `NOT NULL ON CONFLICT REPLACE DEFAULT …`.
+- **Avoid CloudKit's reserved names** as column names: `creationDate`, `modificationDate`, `recordID`, `recordType`, `etag`, and the other `CKRecord` system fields.
+- **Only tables passed to `SyncEngine(tables:)` sync.** Local-only tables (caches) are left out.
+- **Conflicts:** the last edit wins, per column.
+- **Triggers** should check `SyncEngine.isSynchronizing` so they don't re-run on synced changes.
+
+**Signed-in states:**
+
+- **Not signed into iCloud:** the app works normally, saving only on the phone.
+- **Signing out or switching accounts keeps the data on the phone.** SQLiteData deletes it by default, so the app provides a `SyncEngineDelegate` that overrides `syncEngine(_:accountChanged:)`.
+
+**Setup:** the iCloud capability with a CloudKit container, and Background Modes → Remote notifications. Before release, deploy the CloudKit schema to production in the CloudKit dashboard. The simulator gets no push notifications, so test sync on a real iPhone.
 
 ## App Store consequences
 
 - **User data can never be wiped by an update.** 1.0 could drop all tables and start over. This app needs planned, versioned database upgrades from version 1, so getting the model right up front matters.
-- **Backups and moving to a new phone** need an answer before release.
+- **Backups and moving to a new phone are covered by iCloud sync.** A new phone or a reinstall on the same Apple ID downloads everything. Normal iPhone backups include the database file too.
+- **Privacy label: "Data not collected."** Data stays in the user's own iCloud, which the developer can't see. A privacy policy web page is still required.

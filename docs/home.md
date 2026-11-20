@@ -61,14 +61,14 @@ From `GYMBUDDY_1.md` and the screenshots in `../GymBuddy/assets/images/readme/`:
 
 - **One big Done button logs the current set.** It saves the planned weight and reps unless they were changed.
 - **Numbers are changed before tapping Done.** The screen always shows exactly what will be saved.
-- **Tap a number to change it.** A scroll wheel opens, starting on the current number. Weight moves in 0.5 lb steps (covering machine and free weights) and reps in steps of 1. No +/- buttons.
+- **Tap a number to change it.** A scroll wheel opens, starting on the current number. Weight moves in 0.5 lb or 0.25 kg steps (covering machine and free weights) and reps in steps of 1. No +/- buttons.
+- **Wheel ranges:** weight 0–1000 lb (0–500 kg), reps 1–50. 0 reps can't be logged.
+- **A bodyweight exercise with no added weight shows "BW"** instead of 0.
 - **A changed weight applies to "This set" or "Rest of today"** (every remaining set at that weight in this workout).
 - **Home never edits the program,** except by accepting a jump in the jump popup. Other program changes are made in Programs.
 - **An Undo bar appears above the Done button for a few seconds after Done,** for quick mistakes.
 - **Sets go in order.** The current set is always the first one not done. Upcoming sets can have today's numbers changed ahead of time, but you can't jump to them.
 - **A new PR shows a small "PR" badge on the set** right after it's logged. No pop-up (`docs/tracker.md` "PRs").
-
-**Open:** the kg wheel step. 0.5 kg is proposed, with 0.25 kg as the alternative.
 
 ### Sets drawer (top)
 
@@ -82,7 +82,9 @@ From `GYMBUDDY_1.md` and the screenshots in `../GymBuddy/assets/images/readme/`:
 - **Tap to pause or play. Swipe across to skip. Hold to restart.**
 - **Skip and restart show an Undo** in the same bar as set Undo ("Rest skipped · Undo"), with a buzz. No confirm popup, since one would get annoying.
 - **Side buttons take time off and add it.** The amount is a setting (5, 10, 15, 30, or 60 seconds, default 15).
-- **When rest ends,** a notification fires and the Live Activity shows that rest is over.
+- **When rest ends,** a notification fires with the normal notification chime and a buzz, reading "Rest over · Bench 215 × 5". The Live Activity shows that rest is over.
+- **No rest after the workout's last set.** The summary shows instead.
+- **The screen stays on during a workout.**
 - **The timer stores its end time,** not a running count, so it survives restarts and backgrounding (from `GYMBUDDY_1.md` lessons).
 
 ### Hints
@@ -98,7 +100,7 @@ From `GYMBUDDY_1.md` and the screenshots in `../GymBuddy/assets/images/readme/`:
 - **Tap an exercise to jump to it.** After it, Home continues with the next exercise in the list, not the one that was passed over. A passed-over exercise stays undone unless it is dragged into place. There is no separate Skip action.
 - **Hold an exercise to open its sets** as chips. Tapping a chip edits that set with the scroll wheel. Rows show no chips otherwise, so a tap always means "jump".
 - **Drag ≡ to reorder.**
-- **Add an exercise or a set for today only,** for when a machine is taken. Adding an exercise uses the same search and "New exercise" button as Programs (`docs/programs.md` "Adding an exercise to a day"). It is logged to history and never changes the plan.
+- **Add an exercise or a set for today only,** for when a machine is taken. "+ Add exercise" is a text row at the bottom of the day list, and holding an exercise shows a "+" chip after its sets. Adding an exercise uses the same search and "New exercise" button as Programs (`docs/programs.md` "Adding an exercise to a day"). It is logged to history and never changes the plan.
 - **Programs edits wait for the next workout.** Home locks in a copy of the day when the workout starts (`docs/programs.md` "Editing a day that's in progress").
 - **The help line reads:** "Tap to go · Hold to edit sets · Drag ≡ to reorder", then "Changes only apply to today's workout".
 
@@ -118,11 +120,12 @@ From `GYMBUDDY_1.md` and the screenshots in `../GymBuddy/assets/images/readme/`:
 - **One Done per exercise, in any order.** Before the round is finished, Done swaps straight to the next exercise in the round with no timer.
 - **Rest starts when every exercise in the round is done.**
 - **Any number of exercises** can be in a superset.
+- **Pairing on Home works like Programs:** Select in the day list → pick 2 or more → Superset.
 - **Supersets can be split, and exercises paired, mid-workout.** These changes only affect that workout's history, never the plan (`docs/data.md` "Decided").
 
 How the superset's rest is stored is in `docs/data.md` under "The plan".
 
-**The rest rule**, written once in one place and tested:
+**The rest rule**, written once in one place:
 
 | Situation | Rest used |
 |---|---|
@@ -147,6 +150,17 @@ How the superset's rest is stored is in `docs/data.md` under "The plan".
 
 **Rejected: a native iOS pull-down menu for the picker** (Matt doesn't like the look), and **a bottom sheet** (it opened from the opposite end of the screen to the button).
 
+### Live Activity
+
+- **Exists only while resting.** No rest between exercises in a superset round means no Live Activity there.
+- **Lock screen:** time left, a progress line, the next set ("Bench · 215 × 5"), and pause and skip buttons.
+- **Dynamic Island:** time left in the day's color.
+- **When rest ends,** it shows "Rest over", then goes away after a few minutes.
+
+### Welcome screen
+
+- **Home with no program:** the app name, one short line, and a solid "Create your first program" button that starts the walkthrough.
+
 ### Music
 
 - **No music controls.** Music was dropped from the app (`CLAUDE.md` "Goals"). The phone's own lock screen controls cover it.
@@ -162,7 +176,7 @@ How the superset's rest is stored is in `docs/data.md` under "The plan".
 
 - **Liquid Glass,** Apple's iOS 26 look. Panels, the day pill, set chips, and the weight and reps boxes are frosted see-through glass with a bright edge. SwiftUI provides this effect itself, which fits "Apple's own tools" and means no custom design system to maintain.
 - **The day's color tints the whole screen:** the day pill text, done set chips, the current item's outline, the Done button, the timer, and the glow behind the glass.
-- **Each day's color is picked by the user** when making the day in Programs, from Apple's system colors, with a suggested default. The color is already part of the Day in `docs/data.md` "The plan".
+- **Each day's color is picked by the user** when making the day in Programs, from Apple's system colors. A new day starts as "Default", black or white (`docs/programs.md` "Day colors"). The color is already part of the Day in `docs/data.md` "The plan".
 - **A soft glow in the day's color** sits behind the glass at the top right, with a faint warm glow at the bottom left. It gives the glass something to show through.
 - **Done, the timer, and main actions are solid day color,** not tinted glass. They are the only solid things on a see-through screen, so the eye goes straight to them. This covers Done, the timer, Save, Switch, and Jump. Secondary actions (Not yet, Start next workout, Undo, Select) are glass.
 - **The timer is the Done button in the same color,** with a darker strip on the left showing how much rest has passed, so Done turning into the timer reads as the same button changing.
@@ -178,13 +192,8 @@ How the superset's rest is stored is in `docs/data.md` under "The plan".
 
 ## Where we left off
 
-Pass 1 (layout) and pass 2 (visual style) are finished. Matt is happy with the 18 screens on the "Pass 2 · Liquid Glass" page of the canvas. Next is planning the Programs section, in its own `docs/programs.md`.
+Pass 1 (layout) and pass 2 (visual style) are finished. Matt is happy with the 18 screens on the "Pass 2 · Liquid Glass" page of the canvas. Pre-build questions were answered on 2026-11-20. Next is building.
 
 ## Still open
 
-- Where "Add exercise" and "Add set" go in the layout (decided in `docs/programs.md`, not yet drawn)
-- How pairing works in detail ("Select" in the day list is sketched, not decided)
-- The kg wheel step (see "Logging sets")
-- Empty states: no program shows a welcome screen with a button to create the first program (`docs/programs.md` "Nothing empty"). Empty days and programs can't exist. The welcome screen's design is still open
-- What the Live Activity shows, including mid-superset
-- The overall layout is settled in `docs/layout.md`. Off Home, a glass timer bar above the tab bar shows rest
+- Motion (see "Visual style"), left to the build

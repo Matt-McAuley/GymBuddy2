@@ -25,7 +25,7 @@ From `docs/data.md`:
 
 ### Streaks
 
-- **A streak counts weeks with at least one workout.** Lifting isn't daily, so a day-by-day streak would break on rest days. Weeks use the program's week reset day (`docs/data.md` "Rotation").
+- **A streak counts weeks with at least one workout.** Lifting isn't daily, so a day-by-day streak would break on rest days. Weeks use the active program's week reset day (`docs/data.md` "Rotation").
 - **Shown as the number only** ("7-week streak"), with no icon for now.
 
 **Rejected:** weeks with every day done (too strict) and a weekly goal number (an extra setting to explain).
@@ -38,12 +38,16 @@ From `docs/data.md`:
 - **Shows:** time, a count of sets logged ("25 sets", with no "out of"), and PRs hit.
 - **Each exercise row shows what was lifted, plus its jump if one was earned:** "BB Row · 195 × 5, 5, 5, 5, 7 · +2.5". Nothing is marked as hit or missed, since falling short of the rep numbers is normal. A tick means the exercise was done. An exercise left undone when finishing early shows "Not done".
 - **"Start next workout"** moves on by hand (`docs/home.md` "Day and rotation").
+- **An optional notes box** sits on the summary, on Home and from the Log.
+- **A past workout can be fixed from its summary in the Log:** edit a set's weight or reps, or delete the whole workout (with a confirm). This changes history only, never the plan.
 
 **Rejected:** a tick vs "!" for each exercise, and "Set 4: 7 of 10" lines, which treated falling short as failing. Also "25 / 26 sets", and "compared to last time" (Bench +5 lb). Last time this day was done was usually a different scheme, so the numbers would show false drops. Also rejected: showing the summary only at rollover, and a "Summary" button that's always available.
 
 ### PRs
 
 - **A small "PR" badge on the set on Home** right after it's logged. No pop-up.
+- **A PR beats the heaviest weight ever lifted for that many reps or more.** 220 × 6 also beats the best for 5.
+- **The first time a rep count is done is not a PR,** so the first workouts aren't all PRs.
 
 ### Layout
 
@@ -71,6 +75,7 @@ From `docs/data.md`:
 - **Everything uses what was actually lifted,** never the plan's goal. Plan 215 × 7 and get 6: it counts as 215 × 6.
 - **Best weight for a rep count,** as a graph over time (heaviest Bench for 5).
 - **The rep count is picked from a menu on the graph's title,** "Best for 5 reps ▾" (screen R1). It starts on the rep count done most, and the menu lists every rep count done, most done first, with how many times. It stays tidy with any number of rep counts, and it's a standard iPhone menu. **Rejected:** a table or chips for every rep count, swipe chips, and rep ranges (where a PR can hide inside a range).
+- **Estimated one-rep max uses Epley:** weight × (1 + reps / 30). Sets over 12 reps are left out.
 - **Estimated one-rep max: one dot for the best of each month.** The formula gives different numbers at low and high reps, so a 531 day (260 × 2 ≈ 277) sits about 25 lb above a 5x5 day (215 × 5 ≈ 251), and a line through every workout zigzags by scheme. A month nearly always covers every scheme, so the monthly best is smooth, and it still drops if strength drops. **Rejected:** every workout (zigzags), best so far (a flat line forever after a drop), and best each rotation of schemes (replaced by monthly so it works the same in every program).
 - **No hits anywhere in Tracker.** Rep numbers are also jump targets (`CLAUDE.md` "Goals"), so most workouts fall a little short by design until the jump is earned. A hit rate, a ring, or a dot row would be mostly empty, and it would read as failure. **Rejected:** a dot row, a set grid, a ring, a streak, tubes, and a "next jump" section (reps to go for each scheme, plus jumps over time), which didn't add enough.
 
@@ -112,7 +117,7 @@ Mockups: the "Tracker · color check" page (the comparison used to settle color)
 
 ## Still open
 
-- The summary opened from the Log, with every set listed below it, isn't drawn yet
+- The summary opened from the Log, with every set listed below it, isn't drawn yet. It follows Home's summary, left to the build
 - The tab bar is a placeholder on every screen. Its design is settled in `docs/layout.md`
 
 ## Mockups
