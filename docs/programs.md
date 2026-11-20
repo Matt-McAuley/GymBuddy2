@@ -2,7 +2,7 @@
 
 The tab where programs are built and kept up to date: programs, their schemes and days, the exercises in each day with their sets and rest, supersets, and the shared list of exercises.
 
-**Status:** behavior settled in planning, not built. Layout and visual style come next. See "Where we left off".
+**Status:** behavior and layout (pass 1) settled, not built. Visual style (pass 2) comes next. See "Where we left off".
 
 ## What Matt is trying to do
 
@@ -27,22 +27,24 @@ How the data model removes the per-scheme copies is in `docs/data.md` "The plan"
 ### Structure
 
 - **Two sections: Programs and Exercises.** Programs is where programs are built. Exercises is the shared list of every exercise, with each exercise's own settings.
+- **A two-part "Programs | Exercises" switch sits under the title** at the top of the tab, so both lists are one tap apart. Mockup: "Programs · switch options" page on the canvas (`docs/home.md` "Mockups"), screens A1 and A2.
 - **Programs drill down:** program list → a program's page → a day → an exercise or superset.
 - **There is no Days section.** Days belong to one program (`docs/data.md` "The plan"), so they live inside it.
 - **Rows that open something show a › arrow.** The day list shows exercise names only, with no set summary.
 
-**Rejected:** 1.0's three sub-tabs (Programs, Days, Exercises), and **no Exercises section** (jump size and bodyweight belong to the exercise and need a home).
+**Rejected:** an "Exercises" button on the program list that opens Exercises as its own page (screens B1 and B2), which looked clunky. Also 1.0's three sub-tabs (Programs, Days, Exercises), and **no Exercises section** (jump size and bodyweight belong to the exercise and need a home).
 
 ### Program list
 
-- **Lists every program.** The active one is marked.
+- **Lists every program by name only,** with no summary such as a scheme count. The active one is marked.
 - **"Use this program"** on a program's page makes it the active program. There is no check mark on the list.
 
 ### Program page
 
 - **Name, schemes, days, and rotation settings.**
 - **Schemes:** add, rename, drag ≡ to reorder, archive. A new scheme starts as a copy of the scheme before it (`docs/data.md` "Making setup and updates fast").
-- **An "Add scheme" button is always on the program page,** even with one scheme. It is how a simple program gets its second scheme, after which scheme controls appear elsewhere.
+- **A "Schemes" toggle on the program page turns schemes on or off.** Off (the default for a new program): the program runs on one hidden default scheme, and nothing about schemes shows anywhere (no scheme list, no "Scheme changes" setting, no scheme controls on exercise pages). On: the scheme list and "Add scheme" appear, and scheme controls show even with one scheme.
+- **Turning schemes off hides them; it doesn't delete them.** Turn the toggle back on and the old schemes return as they were.
 - **Days:** add, drag ≡ to reorder, archive, and tap to open.
 - **Rotation settings live here, per program:** the week reset day, when the scheme changes ("every week" or "after all days are done"), and whether empty weeks advance the scheme. App-wide settings stay in Settings (`docs/data.md` "Settings").
 
@@ -61,7 +63,7 @@ How the data model removes the per-scheme copies is in `docs/data.md` "The plan"
 
 - **A search box lists matching exercises** from the Exercises list.
 - **A "New exercise" button is always shown,** whether or not anything matches. It opens the new-exercise form with the name filled in from the search text, which can be fixed before saving.
-- **Adding an exercise pre-fills its sets** from where it's already used (`docs/data.md` "Making setup and updates fast").
+- **If the exercise is already used somewhere, a "Copy sets from" list appears** after tapping it: every place it's used, grouped by program, plus "Start blank". If it isn't used anywhere, it's added with one blank set. **Rejected:** picking a place automatically (same program first, or the most recently edited place).
 
 **Rejected:** only offering "Create" when nothing matches, since a near match would hide it.
 
@@ -74,7 +76,7 @@ How the data model removes the per-scheme copies is in `docs/data.md` "The plan"
 
 - **The exercise's sets:** weight, reps, and rest.
 - **"Same every scheme" is on by default.** Turning it off gives the exercise a list for each scheme, each starting as a copy, with a scheme switch at the top.
-- **Scheme controls only appear once a program has two or more schemes.** People who don't rotate never see them.
+- **With schemes on, every exercise page shows "Same every scheme".** The scheme switch appears once it's turned off. With schemes off, neither shows.
 - **Typing uses the number pad.** Weight has a decimal point (217.5). Rest is typed as digits, so `330` shows as `3:30`. "Next" moves to the next box.
 - **"Add set" copies the set above.**
 - **Changing a weight or reps offers to change matching sets.** Changing 215 to 220 offers every other set in the list at 215, above and below. It is always a prompt and never automatic.
@@ -106,7 +108,7 @@ How the data model removes the per-scheme copies is in `docs/data.md` "The plan"
 ### Editing a day that's in progress
 
 - **Programs changes reach Home from the next workout.** When a workout starts, Home locks in a copy of the day, so the exercise being done stays accurate.
-- **Programs shows a banner while that day is being edited:** "Push is in progress. Changes start next Push."
+- **Programs shows a banner while that day is being edited:** "Changes start next Push"
 - **Home can add exercises and sets for today only,** for when a machine is taken (`docs/home.md` "Day list").
 
 ### Nothing empty
@@ -119,7 +121,7 @@ How the data model removes the per-scheme copies is in `docs/data.md` "The plan"
 ### First program
 
 - **Making the first program walks through every step:** name → days → adding exercises → schemes. Nothing can be skipped.
-- **The schemes step explains schemes and lets you carry on with just one,** so people who don't rotate see it without having to make several.
+- **The schemes step is the Schemes toggle, off by default,** with one line explaining what schemes are. People who don't rotate just tap Finish.
 - **Every program after that just asks for a name** and opens its page, still under the "Nothing empty" rules.
 - Welcome screens and the help page are app-wide and belong in the layout and Settings doc.
 
@@ -129,24 +131,60 @@ TipKit shows one hint at a time, each only once. Programs has three:
 
 | Hint | When it shows |
 |---|---|
-| "Turn off 'Same every scheme' for lifts that change between schemes" | The first time an exercise is opened in a program with 2 or more schemes |
-| "See everywhere this exercise is used, and update them together" | On "Used in N places", the first time an exercise is opened in Exercises |
+| "Lift changes by scheme? Turn this off." | The first time an exercise is opened in a program with schemes on |
+| "Update every place this is used at once" | On "Used in N places", the first time an exercise is opened in Exercises |
 | "Tap Select to make a superset" | On a day page, once it has 2 or more exercises |
 
 **Rejected:** a hint for "Use this program" (Matt doesn't want it), and hints for things that are covered elsewhere: tapping a day (the walkthrough), drag ≡ (standard iPhone behavior), typing rest (the box shows "3:30" as example text), and matching sets (already a prompt).
 
+### Layout (pass 1)
+
+Settled before drawing the full set of grey-box screens:
+
+- **Program page is one scrolling page:** name and "Use this program", then Days, Schemes, Rotation settings, and Archived. **Rejected:** hiding rotation behind a "Rotation ›" row.
+- **Each set on an exercise page is its own card** with labelled Weight, Reps, and Rest boxes. The scheme switch sits at the top when there are 2 or more schemes. **Rejected:** a table with columns, which is compact but has small boxes.
+- **"Add exercise" slides up a sheet** over the day, like Home's drawers. Swipe down to cancel. **Rejected:** a new page with a back button.
+- **The first-program walkthrough uses the real pages** with a "Step 2 of 4" banner at the top and a Next button. **Rejected:** separate full-screen steps.
+- **The matching-sets offer is a standard iPhone pop-up:** "4 other sets are 215. Change them to 220?" with Just this / Change all. **Rejected:** a bar under the set.
+- **The update-everywhere screen is a grouped tick list:** program → day → scheme, each with its sets, matching places already ticked, the new value typed once, then "Apply to N". **Rejected:** a list of links to edit each place one at a time.
+
+## Mockups
+
+**Canvas:** https://claude.ai/artifact/P5uocnirXmJ72uDcjekpkt (the same canvas as Home, private to Matt)
+
+- **Page "Programs · every feature":** pass 1 grey boxes, one screen per feature. They decide where things go, not how they look.
+- **Page "Programs · switch options":** the Programs | Exercises comparison (A chosen, B rejected), kept for history.
+
+"Arms" (screen 15) is filler. Rest times and the 5x3 weights are placeholders.
+
+| # | Screen | Shows |
+|---|---|---|
+| 1 | Program list | Programs \| Exercises switch, names only, ACTIVE tag, + for a new program, Archived row |
+| 2 | Program page | Use this program, Days with color dots, Schemes toggle (on) and list, Rotation settings, Archived days (whole scroll) |
+| 3 | Day page | Color row, Select tip, exercises and a superset by name with ›, + Add exercise |
+| 4 | Add exercise sheet | Search "Ben", + New exercise "Ben" always shown, matching Bench |
+| 4b | Copy sets from | After tapping Bench: every place it's used, grouped by program, and Start blank (in the bottom row) |
+| 5 | New-exercise form | Name filled in from the search, Bodyweight, Jump size left blank for the default |
+| 6 | Exercise page, schemes off | A card per set with Weight, Reps, Rest, no scheme controls, + Add set |
+| 7 | Exercise page, schemes on | First-time tip, "Same every scheme" off, 5x5 \| 5x3 \| 531 switch |
+| 8 | Change matching sets? | iPhone pop-up after typing 220: Just this / Change all |
+| 9 | Superset page | Its exercises with ›, Split, rest after each round |
+| 10 | Exercise inside a superset | Weight and Reps only, since the superset sets rest |
+| 11 | Rest after splitting | Sheet listing each exercise's rest and where it came from, Done |
+| 12 | Exercises list | The switch on Exercises, search, Archived row |
+| 13 | An exercise | Name, Bodyweight, Jump size, first-time tip, "Used in 6 places" |
+| 14 | Update everywhere | Weight \| Reps \| Rest, 215 → 220, grouped tick list, Apply to 4 places |
+| 15 | Archived days | Restore, the archive confirmation, the greyed-out last-day archive |
+| 16 | Day in progress | "Changes start next Push" banner |
+| 17 | Home with no program | Welcome and "Create your first program" |
+| 18–21 | Walkthrough | Real pages with a "Step N of 4" banner: name, days, each day's exercises, Schemes toggle, off by default |
+
+**Approved in review along with the screens:** a ··· menu on the program, exercise, and exercise-in-day pages (for rename, duplicate, archive, remove), and swiping a scheme or set row to rename, archive, or remove it.
+
 ## Where we left off
 
-Behavior is settled. Next is the layout (pass 1) as grey-box mockups, then the visual style (pass 2), carrying over Home's Liquid Glass look.
-
-How to start pass 1, following how Home was done (`docs/home.md` "Mockups"):
-
-1. **First, a small comparison** of the main open choice: how to switch between Programs and Exercises (a two-part switch at the top, or Exercises opened from a button on the program list). Settle it before drawing anything else.
-2. **Then grey-box screens, one per feature:** program list, program page, day page, adding an exercise (search + "New exercise"), new-exercise form, exercise page (one scheme and several schemes, with the "apply to matching sets" prompt), superset page, "Rest after splitting" panel, Exercises list and an exercise's page, update-everywhere screen, Archived sections, the in-progress banner, the walkthrough steps, and Home's no-program welcome screen.
-3. **Add them as a new page** on the Home canvas (https://claude.ai/artifact/P5uocnirXmJ72uDcjekpkt), read back with the Artifact tool first, and link them here.
+Pass 1 is approved (see "Mockups"). **Next session: start pass 2, the visual style, beginning with color.** Carry over Home's Liquid Glass look (`docs/home.md` "Visual style"), and follow Matt's preference of a small comparison of the open color choices before restyling all the screens. Read the canvas back with the Artifact tool before editing it, since the local files were in a temporary folder.
 
 ## Still open
 
-- Layout of every screen, including how Programs and Exercises are switched between
-- The update-everywhere screen's layout
-- What each walkthrough step looks like
+- Layout of every screen

@@ -75,7 +75,7 @@ From the seeded program in `../GymBuddy/db/dbFunctions.ts:94`:
 Exercise                  name, is it bodyweight, jump size (optional), archived?
                           Shared by all programs.
 
-Program                   name, archived?, rotation settings
+Program                   name, archived?, schemes on?, rotation settings
 ├── Scheme                name, position (5x5, 5x3, 531)
 └── Day                   name, color, position (Push, Pull, Upper, Lower)
     ├── DayExercise       which Exercise, position, superset (optional)
@@ -108,7 +108,7 @@ Numbers are stored as independent copies on each planned set, which keeps any pr
 - **New scheme:** starts as a copy of the previous scheme, then you override what differs
 - **Accessories:** use one "all schemes" set list, so only main lifts need separate numbers
 - **Add set:** copies the set above it
-- **Adding an exercise to a day:** pre-fills from where that exercise is already used
+- **Adding an exercise to a day:** copies the sets from a place it's already used, picked from a list (`docs/programs.md` "Adding an exercise to a day")
 - **Duplicate:** copy a whole program, or copy a day or scheme from another program
 
 **Find and update when changing**:
