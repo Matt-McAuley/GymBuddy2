@@ -47,12 +47,12 @@ Planned: `docs/tracker.md` and a doc for the overall layout and Settings.
 
 ## Where we are
 
-Planning only. No app code exists yet. The data model is settled in `docs/data.md`. Home's behavior, layout (pass 1), and visual style (pass 2, Liquid Glass) are settled in `docs/home.md`, with mockups linked there. Programs' behavior and layout (pass 1, grey boxes) are settled in `docs/programs.md`, with mockups linked there. Programs' visual style (pass 2, Liquid Glass) is settled too: grey outside a day, the day's color inside one. Next step: pick the next area to plan (Music, Tracker, or the overall layout and Settings). See `docs/programs.md` "Where we left off".
+Planning only. No app code exists yet. The data model is settled in `docs/data.md`. Home's behavior, layout (pass 1), and visual style (pass 2, Liquid Glass) are settled in `docs/home.md`, with mockups linked there. Programs' behavior and layout (pass 1, grey boxes) are settled in `docs/programs.md`, with mockups linked there. Programs' visual style (pass 2, Liquid Glass) is settled too: grey outside a day, the day's color inside one. Next step: plan Tracker, in a new `docs/tracker.md`. See `docs/programs.md` "Where we left off".
 
 ## Still undecided
 
 - Which features to keep, change, or add on each page
-- How the Liquid Glass style chosen for Home (`docs/home.md` "Visual style") carries over to Music and Tracker (Programs is done, in `docs/programs.md` "Visual style (pass 2)")
+- How the Liquid Glass style chosen for Home (`docs/home.md` "Visual style") carries over to Tracker (Programs is done, in `docs/programs.md` "Visual style (pass 2)")
 - The overall layout: the tab bar, where Settings lives, and whether the timer appears on every page
 - How the Settings screen is designed
 - Which section to build first

@@ -204,7 +204,7 @@ Mockups: the "Programs · color check" page on the canvas (the program page in g
 
 ## Where we left off
 
-Pass 1 (layout) and pass 2 (visual style) are finished. Matt is happy with the 22 screens on the "Programs · Liquid Glass" page of the canvas. **Next: pick the next area to plan:** Music, Tracker, or the overall layout and Settings. Read the canvas back with the Artifact tool before editing it, since the local files were in a temporary folder.
+Pass 1 (layout) and pass 2 (visual style) are finished. Matt is happy with the 22 screens on the "Programs · Liquid Glass" page of the canvas. **Next: plan Tracker** in its own `docs/tracker.md`. Read the canvas back with the Artifact tool before editing it, since the local files were in a temporary folder.
 
 ## Still open
 
