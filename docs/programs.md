@@ -2,7 +2,7 @@
 
 The tab where programs are built and kept up to date: programs, their schemes and days, the exercises in each day with their sets and rest, supersets, and the shared list of exercises.
 
-**Status:** behavior and layout (pass 1) settled, not built. Visual style (pass 2) comes next. See "Where we left off".
+**Status:** behavior and layout (pass 1) settled, not built. Visual style (pass 2, Liquid Glass) settled. See "Where we left off".
 
 ## What Matt is trying to do
 
@@ -148,12 +148,33 @@ Settled before drawing the full set of grey-box screens:
 - **The matching-sets offer is a standard iPhone pop-up:** "4 other sets are 215. Change them to 220?" with Just this / Change all. **Rejected:** a bar under the set.
 - **The update-everywhere screen is a grouped tick list:** program → day → scheme, each with its sets, matching places already ticked, the new value typed once, then "Apply to N". **Rejected:** a list of links to edit each place one at a time.
 
+### Visual style (pass 2)
+
+Programs uses Home's Liquid Glass look (`docs/home.md` "Visual style"): frosted glass panels, a soft glow behind them, capsule buttons, SF Pro, and the same rule that only main actions are solid.
+
+- **Outside a day, Programs is black, white, and grey.** This covers the program list, the program page, the Exercises list, an exercise opened from Exercises, and update-everywhere. The glow is soft grey. Main actions such as "Use this program", Save, Next, and Apply are solid black in light mode and solid white in dark mode.
+- **Inside a day, the screen takes that day's color, like Home.** This covers the day page and everything opened from it: an exercise, a superset, and the Add exercise sheet. The day's glow is behind the glass, the day page's title is in the day color, and main actions are solid day color.
+- **A Default day stays black, white, and grey,** with a grey glow, so it looks like the screens outside a day.
+- **Color always means a day.** With no app color, the day dots on the program page are the only color there, so they are easy to pick out.
+- **Toggles are black (white in dark mode), not Apple's green,** so no color appears that isn't a day's.
+- **"+ Add day", "+ Add scheme", and "+ Add exercise" are plain text rows** at the bottom of their lists: black or white outside a day, and the day color inside one.
+- **Tips inside a day get a light wash of the day color** with a day-color edge.
+
+**Rejected:** a separate app color for Programs, which would make color mean two things ("a day" and "the app").
+
+- **The same Liquid Glass details as Home:** sheets and pop-ups are floating glass panels over a dimmed screen, the box being typed in gets a light fill and an outline in the screen's color, and buttons and switches are capsules.
+- **Section labels are in sentence case** ("Days", "Weight"). Small tags such as "SUPERSET", "ACTIVE", and "STEP 1 OF 4" stay in capitals, as on Home.
+
+Mockups: the "Programs · color check" page on the canvas (the program page in grey and the Push day page in red, in light and dark), and the "Programs · Liquid Glass" page (every screen in light and dark, see "Mockups").
+
 ## Mockups
 
 **Canvas:** https://claude.ai/artifact/P5uocnirXmJ72uDcjekpkt (the same canvas as Home, private to Matt)
 
 - **Page "Programs · every feature":** pass 1 grey boxes, one screen per feature. They decide where things go, not how they look.
 - **Page "Programs · switch options":** the Programs | Exercises comparison (A chosen, B rejected), kept for history.
+- **Page "Programs · color check":** the comparison used to settle color in pass 2.
+- **Page "Programs · Liquid Glass":** pass 2, the same screens restyled, light above dark. Screens in a day use Push red, except screen 6 (DB Curl), which is on Pull, in blue. The walkthrough stays grey, since a new day starts as Default.
 
 "Arms" (screen 15) is filler. Rest times and the 5x3 weights are placeholders.
 
@@ -183,7 +204,7 @@ Settled before drawing the full set of grey-box screens:
 
 ## Where we left off
 
-Pass 1 is approved (see "Mockups"). **Next session: start pass 2, the visual style, beginning with color.** Carry over Home's Liquid Glass look (`docs/home.md` "Visual style"), and follow Matt's preference of a small comparison of the open color choices before restyling all the screens. Read the canvas back with the Artifact tool before editing it, since the local files were in a temporary folder.
+Pass 1 (layout) and pass 2 (visual style) are finished. Matt is happy with the 22 screens on the "Programs · Liquid Glass" page of the canvas. **Next: pick the next area to plan:** Music, Tracker, or the overall layout and Settings. Read the canvas back with the Artifact tool before editing it, since the local files were in a temporary folder.
 
 ## Still open
 
