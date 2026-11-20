@@ -28,6 +28,7 @@ GymBuddy 1.0 was built with Expo and React Native. Moving to Swift is meant to f
 - Add a Tracker page with workout history, plus streaks, PRs, graphs, and workout summaries, like Strava.
 - No music. Spotify's limits block an App Store release (5 users in development mode, and wider access needs a registered business with 250k monthly users), its recommendation tools are closed to new apps, and YouTube Music has no official way in. Decided 2026-11-19.
 - Rotate the workout day and scheme automatically, with manual override.
+- **Rep numbers are jump goals, not a pass/fail plan.** Bench 5x5 is entered as 5, 5, 5, 5, 7, and hitting every number earns a weight jump (a PR, which is rare). Falling short is normal and expected, not a miss. Never design anything that treats a set below its number as a failure (ticks vs warnings, hit rates, "missed" labels). See `docs/data.md` "Jump rules".
 - Fix the known problems in each section as we rebuild that section, rather than carrying them over. They are listed in `GYMBUDDY_1.md`.
 - Build with Apple's own tools wherever they do the job, to avoid fighting third-party packages again.
 
@@ -42,12 +43,13 @@ Each doc gives a high-level overview of its area, then records the decisions and
 - `docs/data.md`: how programs and history are stored, and how rotation works
 - `docs/home.md`: the workout screen, including logging sets, the rest timer, and supersets
 - `docs/programs.md`: building programs, schemes, days, sets, supersets, and the shared exercise list
+- `docs/tracker.md`: workout history, streaks, PRs, graphs, and the workout summary
 
-Planned: `docs/tracker.md` and a doc for the overall layout and Settings.
+Planned: a doc for the overall layout and Settings.
 
 ## Where we are
 
-Planning only. No app code exists yet. The data model is settled in `docs/data.md`. Home's behavior, layout (pass 1), and visual style (pass 2, Liquid Glass) are settled in `docs/home.md`, with mockups linked there. Programs' behavior and layout (pass 1, grey boxes) are settled in `docs/programs.md`, with mockups linked there. Programs' visual style (pass 2, Liquid Glass) is settled too: grey outside a day, the day's color inside one. Next step: plan Tracker, in a new `docs/tracker.md`. See `docs/programs.md` "Where we left off".
+Planning only. No app code exists yet. The data model is settled in `docs/data.md`. Home's behavior, layout (pass 1), and visual style (pass 2, Liquid Glass) are settled in `docs/home.md`, with mockups linked there. Programs' behavior and layout (pass 1, grey boxes) are settled in `docs/programs.md`, with mockups linked there. Programs' visual style (pass 2, Liquid Glass) is settled too: grey outside a day, the day's color inside one. Tracker's behavior and layout (pass 1, grey boxes) are settled in `docs/tracker.md`, with mockups linked there. Next step: Tracker visual style (pass 2), starting with color. See `docs/tracker.md` "Where we left off".
 
 ## Still undecided
 

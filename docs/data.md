@@ -36,7 +36,7 @@ From the seeded program in `../GymBuddy/db/dbFunctions.ts:94`:
 - **Exercises are archived, not deleted,** so history keeps working. Programs, days, and schemes are archived too (`docs/programs.md` "Archiving").
 - **An exercise is just a name.** "Bench" is one exercise. The program sets weight, reps, and rest.
 - **Sets can be overridden while lifting.** The actual weight and reps get recorded.
-- **Workouts start on the first completed set and finish on the last completed set.** There is no Start or Finish button.
+- **Workouts start on the first completed set and finish on the last completed set.** There is no Start button. A "Finish workout" button appears only when sets are left undone (`docs/tracker.md` "Workout summary").
 - **Exercises can be skipped or reordered during a workout,** and superset pairings can change.
 - **A set's rep number is also its jump number.** There is no separate target field. Bench 5x5 is entered as 5, 5, 5, 5, 7, and 531 as 5, 3, 2, 3, 5. Hit the numbers and you jump. Do less and you stay.
 - **Every set must hit its number at the planned weight or heavier** to earn a jump.
@@ -155,7 +155,7 @@ Workout                   date, start and last-set times, day and scheme,
                           RPE (optional), time completed
 ```
 
-- Saving planned and actual numbers lets Tracker show hits and misses
+- Saving planned and actual numbers is what jump offers and PRs are worked out from. It is not for showing hits and misses: the rep numbers are jump goals, so falling short of them is normal (`CLAUDE.md` "Goals")
 - Changes during a workout (order, skips, superset swaps) only affect that workout's history, not the plan
 - Only raw sets are stored. Charts and records are calculated from them, so new stats can be added later and still cover old workouts
 

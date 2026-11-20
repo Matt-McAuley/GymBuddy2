@@ -66,6 +66,7 @@ From `GYMBUDDY_1.md` and the screenshots in `../GymBuddy/assets/images/readme/`:
 - **Home never edits the program,** except by accepting a jump in the jump popup. Other program changes are made in Programs.
 - **An Undo bar appears above the Done button for a few seconds after Done,** for quick mistakes.
 - **Sets go in order.** The current set is always the first one not done. Upcoming sets can have today's numbers changed ahead of time, but you can't jump to them.
+- **A new PR shows a small "PR" badge on the set** right after it's logged. No pop-up (`docs/tracker.md` "PRs").
 
 **Open:** the kg wheel step. 0.5 kg is proposed, with 0.25 kg as the alternative.
 
@@ -141,7 +142,8 @@ How the superset's rest is stored is in `docs/data.md` under "The plan".
 - **Switching day or scheme mid-workout ends the current workout.** Its finished sets are kept and that day counts as done (a partial workout counts, `docs/data.md`). The new day or scheme starts its own workout on its first Done. It works just like doing half a workout and coming back hours later.
 - **Going back to a day and scheme done earlier picks up where it left off,** if it's before rollover. The sets already done stay ticked and it continues as the same workout.
 - **A scheme override changes the scheme for the rest of the week,** and the rotation carries on from there like a wheel (see `docs/data.md` "Rotation").
-- **A finished day stays on screen until rollover,** with every exercise ticked, a summary (sets, time, and PRs), and each exercise's jump shown as "+2.5". A "Start Pull now" button moves on by hand. Home never moves on by itself.
+- **A finished day stays on screen until rollover,** with every exercise ticked, a summary (sets, time, and PRs), and each exercise's jump shown as "+2.5". A "Start next workout" button moves on by hand. It doesn't name the day, since a long day name wouldn't fit. The Home mockups still show the older "Start Pull now". Home never moves on by itself. The summary's full contents are in `docs/tracker.md` "Workout summary".
+- **A day finishes on its own when every set is done.** If sets are left (passed over, or the workout was cut short), a "Finish workout" button appears in the day list. It asks "Finish without DB Curl? 3 sets left", then shows the finished day. That finished day has a "Resume workout" button, which reopens the same workout and hides the summary.
 
 **Rejected: a native iOS pull-down menu for the picker** (Matt doesn't like the look), and **a bottom sheet** (it opened from the opposite end of the screen to the button).
 
@@ -162,7 +164,7 @@ How the superset's rest is stored is in `docs/data.md` under "The plan".
 - **The day's color tints the whole screen:** the day pill text, done set chips, the current item's outline, the Done button, the timer, and the glow behind the glass.
 - **Each day's color is picked by the user** when making the day in Programs, from Apple's system colors, with a suggested default. The color is already part of the Day in `docs/data.md` "The plan".
 - **A soft glow in the day's color** sits behind the glass at the top right, with a faint warm glow at the bottom left. It gives the glass something to show through.
-- **Done, the timer, and main actions are solid day color,** not tinted glass. They are the only solid things on a see-through screen, so the eye goes straight to them. This covers Done, the timer, Save, Switch, and Jump. Secondary actions (Not yet, Start Pull now, Undo, Select) are glass.
+- **Done, the timer, and main actions are solid day color,** not tinted glass. They are the only solid things on a see-through screen, so the eye goes straight to them. This covers Done, the timer, Save, Switch, and Jump. Secondary actions (Not yet, Start next workout, Undo, Select) are glass.
 - **The timer is the Done button in the same color,** with a darker strip on the left showing how much rest has passed, so Done turning into the timer reads as the same button changing.
 - **The current item gets a light day-color fill and a day-color outline:** the current set chip, the "Now" set, the selected day, the wheel's selected value, the new jump weight, and the current exercise in the day list.
 - **Drawers and popups are floating glass panels** with a small gap from the screen edges, as iOS 26 does sheets. They are more solid than the main screen's glass so text stays readable, and the screen behind is dimmed.
