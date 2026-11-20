@@ -2,7 +2,7 @@
 
 The new tab for looking back: every workout, streaks, PRs, and graphs of each lift, plus the summary shown after a workout. Strava is the model for the kind of features, without the social side.
 
-**Status:** behavior and layout (pass 1, grey boxes) settled, not built. Visual style (pass 2) comes next. See "Where we left off".
+**Status:** behavior, layout (pass 1, grey boxes), and visual style (pass 2, Liquid Glass) settled, not built. See "Where we left off".
 
 ## What Matt is trying to do
 
@@ -93,10 +93,27 @@ From `docs/data.md`:
 
 - **None.** Tracker is private, with nothing that leaves the phone.
 
+### Visual style (pass 2)
+
+Tracker uses Home's Liquid Glass look (`docs/home.md` "Visual style"): frosted glass cards, a soft glow behind them, capsule buttons, SF Pro with equal-width digits, and the rule that only main actions are solid.
+
+- **Tracker is black, white, and grey, like Programs outside a day** (`docs/programs.md` "Visual style (pass 2)"). The glow is soft grey. Color always means a day.
+- **Day color appears only as small dots:** on the calendar and on each Log row.
+- **A lift's graphs have no color.** The line and dots are black (white in dark mode), with no key. **Rejected:** dots in the color of the day each lift was done on, with a "Push · Upper" key, which read worse than plain.
+- **PRs have no color of their own.** "1 PR" is plain text, so color keeps one meaning.
+- **A workout summary is in its day's color wherever it opens,** on Home or from the Log, so the same workout always looks the same.
+
+**Rejected:** all grey, with day color only on the calendar. Also a gold PR color, which would make color mean two things.
+
+- **Summary screens (on Home) in the day's color:** the day pill, ticks, and jumps (+2.5) are in the day color, and the PR count tile is solid day color, as on Home's "Push done". "Finish workout", "Resume workout", and "Start next workout" are glass. In the "Finish workout?" pop-up, Finish is solid day color and Not yet is glass.
+- **The Filter is a floating glass panel** over a dimmed screen, with a solid Done, like Home's drawers.
+
+Mockups: the "Tracker · color check" page (the comparison used to settle color) and the "Tracker · Liquid Glass" page (every screen in light and dark, see "Mockups").
+
 ## Still open
 
-- Visual style (pass 2), including what color Tracker uses. Programs is grey outside a day and uses the day's color inside one (`docs/programs.md` "Visual style (pass 2)")
-- How the summary screens (6–8) look in Liquid Glass. They live on Home, which is already styled (`docs/home.md` "Visual style")
+- The summary opened from the Log, with every set listed below it, isn't drawn yet
+- The tab bar is a placeholder on every screen, until the overall layout is planned
 
 ## Mockups
 
@@ -119,8 +136,12 @@ From `docs/data.md`:
 | 7 | Home: Finish workout | Day list with DB Curl undone, Finish workout, and "Finish workout? DB Curl isn't done. 3 sets left." with Not yet / Finish |
 | 8 | Home: finished early | The summary with DB Curl "Not done", Resume workout and Start next workout |
 
+**Page "Tracker · color check":** Overview, then Log and a lift in two options: A (all grey) and B (day-color dots on Log rows and graph dots). B was picked for the Log, and A for the graphs.
+
+**Page "Tracker · Liquid Glass":** pass 2, the same 8 screens restyled, light above dark. Screens 1–5 are grey with day-color dots on the calendar and Log. Screens 6–8 are on Pull, in blue.
+
 The workouts and weights are placeholders.
 
 ## Where we left off
 
-Layout B is chosen, the calendar shows every program, and the Lifts list shows the last PR (L3). A lift's page is decided: two stacked graphs with one 3M · 6M · 1Y · All picker, the R1 rep menu, monthly estimated max, and no hits. The summary, the Finish workout button, the filter, and empty states are decided too. Pass 1 is approved: Matt is happy with the 8 screens on the "Tracker · every feature" page. **Next session: start pass 2, the visual style, beginning with color.** Carry over the Liquid Glass look (`docs/home.md` "Visual style"), and show a small comparison of the open color choices before restyling every screen. Read the canvas back with the Artifact tool before editing it, since the local files were in a temporary folder.
+Pass 1 (layout) and pass 2 (visual style) are finished. Matt is happy with the 16 screens on the "Tracker · Liquid Glass" page of the canvas. **Next: plan the overall layout and Settings** in their own doc: the tab bar, where Settings lives, whether the timer shows on every page, and the Settings screen. Read the canvas back with the Artifact tool before editing it, since the local files were in a temporary folder.
