@@ -147,7 +147,7 @@ How the superset's rest is stored is in `docs/data.md` under "The plan".
 
 ### Music
 
-- **Whether Home has music controls is decided later,** once Music is planned and Spotify's limits are checked.
+- **No music controls.** Music was dropped from the app (`CLAUDE.md` "Goals"). The phone's own lock screen controls cover it.
 
 ## Look and feel
 

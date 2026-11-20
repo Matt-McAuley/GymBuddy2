@@ -10,7 +10,7 @@ Follow every rule in this file:
 
 ## The idea
 
-At the gym, Matt was juggling Google Sheets for the workout program, a timer app with annoying ads, a counter app for sets, and Spotify for music. GymBuddy puts all of that in one app. Matt uses it in real workouts, and the new version is meant for the App Store.
+At the gym, Matt was juggling Google Sheets for the workout program, a timer app with annoying ads, a counter app for sets, and Spotify for music. GymBuddy puts the program, timer, and counter in one app. Matt uses it in real workouts, and the new version is meant for the App Store.
 
 ## Why we are rebuilding
 
@@ -24,15 +24,16 @@ GymBuddy 1.0 was built with Expo and React Native. Moving to Swift is meant to f
 ## Goals
 
 - Release on the App Store, flexible enough for people who train differently from Matt.
-- Keep what makes the app useful: the program builder, the rest timer with Live Activity, the set counter, and Spotify controls in one place.
-- Add a Tracker page with workout history.
+- Keep what makes the app useful: the program builder, the rest timer with Live Activity, and the set counter in one place.
+- Add a Tracker page with workout history, plus streaks, PRs, graphs, and workout summaries, like Strava.
+- No music. Spotify's limits block an App Store release (5 users in development mode, and wider access needs a registered business with 250k monthly users), its recommendation tools are closed to new apps, and YouTube Music has no official way in. Decided 2026-11-19.
 - Rotate the workout day and scheme automatically, with manual override.
 - Fix the known problems in each section as we rebuild that section, rather than carrying them over. They are listed in `GYMBUDDY_1.md`.
 - Build with Apple's own tools wherever they do the job, to avoid fighting third-party packages again.
 
 ## Pages
 
-Home, Programs, Music, and Tracker (new).
+Home, Programs, and Tracker (new).
 
 ## Planning docs
 
@@ -42,7 +43,7 @@ Each doc gives a high-level overview of its area, then records the decisions and
 - `docs/home.md`: the workout screen, including logging sets, the rest timer, and supersets
 - `docs/programs.md`: building programs, schemes, days, sets, supersets, and the shared exercise list
 
-Planned: `docs/music.md`, `docs/tracker.md`, and a doc for the overall layout and Settings.
+Planned: `docs/tracker.md` and a doc for the overall layout and Settings.
 
 ## Where we are
 
@@ -55,7 +56,6 @@ Planning only. No app code exists yet. The data model is settled in `docs/data.m
 - The overall layout: the tab bar, where Settings lives, and whether the timer appears on every page
 - How the Settings screen is designed
 - Which section to build first
-- Whether Spotify's developer limits allow a public App Store release. This has not been verified and should be checked when planning Music
 
 ## GymBuddy 1.0 reference
 
