@@ -49,7 +49,7 @@ From `docs/data.md`:
 
 - **An "Overview | Log | Lifts" switch at the top,** like Programs | Exercises. Overview has the streak and calendar, Log lists every workout by month, and Lifts lists every exercise with search.
 
-**Rejected:** one long scrolling page (screen A), which needed "All workouts" and "All lifts" pages behind it anyway.
+**Rejected:** one long scrolling page, which needed "All workouts" and "All lifts" pages behind it anyway.
 
 ### Calendar
 
@@ -62,7 +62,7 @@ From `docs/data.md`:
 
 - **Each row shows the exercise and when its last PR was** ("PR 9 days ago"), so it's easy to see which lifts are still moving (screen L3).
 
-**Rejected:** a mini graph with the change (L1), heaviest ever (L2, which means different things at different reps), estimated max (doesn't mean much for accessories), and "Best for N reps" (no single rep count to pick).
+**Rejected:** a mini graph with the change, heaviest ever (which means different things at different reps), estimated max (doesn't mean much for accessories), and "Best for N reps" (no single rep count to pick).
 
 ### A lift's page
 
@@ -70,9 +70,9 @@ From `docs/data.md`:
 - **The time range (3M · 6M · 1Y · All) changes both graphs** and lives in the Filter (see "Filter"). The shortest range is 3 months, so estimated max always has at least 3 monthly dots.
 - **Everything uses what was actually lifted,** never the plan's goal. Plan 215 × 7 and get 6: it counts as 215 × 6.
 - **Best weight for a rep count,** as a graph over time (heaviest Bench for 5).
-- **The rep count is picked from a menu on the graph's title,** "Best for 5 reps ▾" (screen R1). It starts on the rep count done most, and the menu lists every rep count done, most done first, with how many times. It stays tidy with any number of rep counts, and it's a standard iPhone menu. **Rejected:** a table or chips for every rep count (P1, P2), swipe chips (R2), and rep ranges (R3, where a PR can hide inside a range).
-- **Estimated one-rep max: one dot for the best of each month.** The formula gives different numbers at low and high reps, so a 531 day (260 × 2 ≈ 277) sits about 25 lb above a 5x5 day (215 × 5 ≈ 251), and a line through every workout zigzags by scheme. A month nearly always covers every scheme, so the monthly best is smooth, and it still drops if strength drops. **Rejected:** every workout (E1, zigzags), best so far (E2, a flat line forever after a drop), and best each rotation of schemes (E3, replaced by monthly so it works the same in every program).
-- **No hits anywhere in Tracker.** Rep numbers are also jump targets (`CLAUDE.md` "Goals"), so most workouts fall a little short by design until the jump is earned. A hit rate, a ring, or a dot row would be mostly empty, and it would read as failure. **Rejected:** a dot row (H), a set grid (H2), a ring (H3), a streak (H4), tubes (H5), and a "next jump" section (reps to go for each scheme, plus jumps over time), which didn't add enough.
+- **The rep count is picked from a menu on the graph's title,** "Best for 5 reps ▾" (screen R1). It starts on the rep count done most, and the menu lists every rep count done, most done first, with how many times. It stays tidy with any number of rep counts, and it's a standard iPhone menu. **Rejected:** a table or chips for every rep count, swipe chips, and rep ranges (where a PR can hide inside a range).
+- **Estimated one-rep max: one dot for the best of each month.** The formula gives different numbers at low and high reps, so a 531 day (260 × 2 ≈ 277) sits about 25 lb above a 5x5 day (215 × 5 ≈ 251), and a line through every workout zigzags by scheme. A month nearly always covers every scheme, so the monthly best is smooth, and it still drops if strength drops. **Rejected:** every workout (zigzags), best so far (a flat line forever after a drop), and best each rotation of schemes (replaced by monthly so it works the same in every program).
+- **No hits anywhere in Tracker.** Rep numbers are also jump targets (`CLAUDE.md` "Goals"), so most workouts fall a little short by design until the jump is earned. A hit rate, a ring, or a dot row would be mostly empty, and it would read as failure. **Rejected:** a dot row, a set grid, a ring, a streak, tubes, and a "next jump" section (reps to go for each scheme, plus jumps over time), which didn't add enough.
 
 **Rejected:** volume (weight × reps added up), lists of weight increases and of PRs as they happened, a "last few times" list, a switch between the two graphs, and 1-week or 1-month ranges (a lift done once a week has too few workouts, and estimated max would be one dot).
 
@@ -100,15 +100,11 @@ From `docs/data.md`:
 
 ## Mockups
 
-**Canvas:** https://claude.ai/artifact/P5uocnirXmJ72uDcjekpkt (the same canvas as Home and Programs), page "Tracker · layout options". Grey boxes, so day colors are shades of grey.
+**Canvas:** https://claude.ai/artifact/P5uocnirXmJ72uDcjekpkt (the same canvas as Home and Programs), page "Tracker · layout options". Grey boxes, so day colors are shades of grey. Only the picks are kept; the rejected options were removed.
 
-- **A:** one scrolling page (rejected)
-- **B1–B3:** the "Overview | Log | Lifts" switch (chosen). B1's legend is outdated: the calendar has no legend
-- **L1–L3:** Lifts list rows with a mini graph plus change, heaviest ever, or last PR
-- **P1–P2:** Bench's page with the graph and a PR table, or the graph alone (both rejected)
-- **R1–R3:** ways to pick the rep count: a menu on the graph's title, chips that swipe sideways, or rep ranges
-- **E1–E3:** estimated max shown for every workout (zigzags), as best so far (a step line), or as the best of each full rotation of schemes
-- **H, H2–H5:** hits designs, all rejected (see "A lift's page")
+- **B1–B2:** the "Overview | Log | Lifts" switch, on Overview and Log
+- **L3:** the Lifts list, each row with its last PR
+- **R1:** the rep count menu on the graph's title
 
 **Page "Tracker · every feature":** pass 1 grey boxes with every decision above applied.
 

@@ -32,7 +32,7 @@ How the data model removes the per-scheme copies is in `docs/data.md` "The plan"
 - **There is no Days section.** Days belong to one program (`docs/data.md` "The plan"), so they live inside it.
 - **Rows that open something show a › arrow.** The day list shows exercise names only, with no set summary.
 
-**Rejected:** an "Exercises" button on the program list that opens Exercises as its own page (screens B1 and B2), which looked clunky. Also 1.0's three sub-tabs (Programs, Days, Exercises), and **no Exercises section** (jump size and bodyweight belong to the exercise and need a home).
+**Rejected:** an "Exercises" button on the program list that opens Exercises as its own page, which looked clunky. Also 1.0's three sub-tabs (Programs, Days, Exercises), and **no Exercises section** (jump size and bodyweight belong to the exercise and need a home).
 
 ### Program list
 
@@ -172,7 +172,7 @@ Mockups: the "Programs · color check" page on the canvas (the program page in g
 **Canvas:** https://claude.ai/artifact/P5uocnirXmJ72uDcjekpkt (the same canvas as Home, private to Matt)
 
 - **Page "Programs · every feature":** pass 1 grey boxes, one screen per feature. They decide where things go, not how they look.
-- **Page "Programs · switch options":** the Programs | Exercises comparison (A chosen, B rejected), kept for history.
+- **Page "Programs · switch options":** the chosen Programs | Exercises switch (A1, A2), kept for history.
 - **Page "Programs · color check":** the comparison used to settle color in pass 2.
 - **Page "Programs · Liquid Glass":** pass 2, the same screens restyled, light above dark. Screens in a day use Push red, except screen 6 (DB Curl), which is on Pull, in blue. The walkthrough stays grey, since a new day starts as Default.
 

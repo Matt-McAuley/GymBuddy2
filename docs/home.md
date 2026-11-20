@@ -28,7 +28,7 @@ From `GYMBUDDY_1.md` and the screenshots in `../GymBuddy/assets/images/readme/`:
 
 - **Page "Pass 2 · Liquid Glass":** the agreed look. All nine screens below, light mode on the top row and dark mode underneath, shown on Push day. This is the reference for building Home.
 - **Page "Home · every feature":** the agreed layout as grey boxes, one screen per feature. They decide where things go, not how they look.
-- **Page "Pass 1 options":** the first three layout options (A, B, C), kept for history.
+- **Page "Pass 1 options":** option B, the pass 1 layout that was picked (lifting and resting), kept for history.
 
 "Cable Fly" in screens 6 and 9 is filler, not from Matt's program.
 
@@ -55,7 +55,7 @@ From `GYMBUDDY_1.md` and the screenshots in `../GymBuddy/assets/images/readme/`:
 - **The set's rest shows as just a timer icon and the time,** next to "Set 2 of 5". No "rest" label, to keep it minimal.
 - **An "Up next" bar at the bottom** names the next exercise and is the handle for pulling up the day list.
 
-**Rejected: +/- steppers on the main screen (option A)** as too busy, and **set rows as the main view (option C)**, which became the top sets drawer instead.
+**Rejected: +/- steppers on the main screen** as too busy, and **set rows as the main view**, which became the top sets drawer instead.
 
 ### Logging sets
 
