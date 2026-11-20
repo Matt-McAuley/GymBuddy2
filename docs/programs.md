@@ -120,10 +120,10 @@ How the data model removes the per-scheme copies is in `docs/data.md` "The plan"
 
 ### First program
 
-- **Making the first program walks through every step:** name → days → adding exercises → schemes. Nothing can be skipped.
+- **Making the first program walks through every step:** unit (lb or kg) → name → days → adding exercises → schemes. Nothing can be skipped. The unit step is in `docs/layout.md` "First open".
 - **The schemes step is the Schemes toggle, off by default,** with one line explaining what schemes are. People who don't rotate just tap Finish.
 - **Every program after that just asks for a name** and opens its page, still under the "Nothing empty" rules.
-- Welcome screens and the help page are app-wide and belong in the layout and Settings doc.
+- The help page and first open are in `docs/layout.md`.
 
 ### Hints
 
@@ -198,7 +198,7 @@ Mockups: the "Programs · color check" page on the canvas (the program page in g
 | 15 | Archived days | Restore, the archive confirmation, the greyed-out last-day archive |
 | 16 | Day in progress | "Changes start next Push" banner |
 | 17 | Home with no program | Welcome and "Create your first program" |
-| 18–21 | Walkthrough | Real pages with a "Step N of 4" banner: name, days, each day's exercises, Schemes toggle, off by default |
+| 18–21 | Walkthrough | Real pages with a "Step N of 4" banner: name, days, each day's exercises, Schemes toggle, off by default. Drawn before the unit step was added, which makes 5 steps |
 
 **Approved in review along with the screens:** a ··· menu on the program, exercise, and exercise-in-day pages (for rename, duplicate, archive, remove), and swiping a scheme or set row to rename, archive, or remove it.
 

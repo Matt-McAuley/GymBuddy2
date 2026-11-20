@@ -113,7 +113,7 @@ Mockups: the "Tracker · color check" page (the comparison used to settle color)
 ## Still open
 
 - The summary opened from the Log, with every set listed below it, isn't drawn yet
-- The tab bar is a placeholder on every screen, until the overall layout is planned
+- The tab bar is a placeholder on every screen. Its design is settled in `docs/layout.md`
 
 ## Mockups
 
@@ -144,4 +144,4 @@ The workouts and weights are placeholders.
 
 ## Where we left off
 
-Pass 1 (layout) and pass 2 (visual style) are finished. Matt is happy with the 16 screens on the "Tracker · Liquid Glass" page of the canvas. **Next: plan the overall layout and Settings** in their own doc: the tab bar, where Settings lives, whether the timer shows on every page, and the Settings screen. Read the canvas back with the Artifact tool before editing it, since the local files were in a temporary folder.
+Pass 1 (layout) and pass 2 (visual style) are finished. Matt is happy with the 16 screens on the "Tracker · Liquid Glass" page of the canvas. The overall layout and Settings were planned next, in `docs/layout.md`. Read the canvas back with the Artifact tool before editing it, since the local files were in a temporary folder.

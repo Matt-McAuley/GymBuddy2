@@ -45,17 +45,15 @@ Each doc gives a high-level overview of its area, then records the decisions and
 - `docs/programs.md`: building programs, schemes, days, sets, supersets, and the shared exercise list
 - `docs/tracker.md`: workout history, streaks, PRs, graphs, and the workout summary
 
-Planned: a doc for the overall layout and Settings.
+- `docs/layout.md`: the tab bar, the timer bar, where Settings lives, the Settings screen, help, and first open
 
 ## Where we are
 
-Planning only. No app code exists yet. The data model is settled in `docs/data.md`. Home's behavior, layout (pass 1), and visual style (pass 2, Liquid Glass) are settled in `docs/home.md`, with mockups linked there. Programs' behavior and layout (pass 1, grey boxes) are settled in `docs/programs.md`, with mockups linked there. Programs' visual style (pass 2, Liquid Glass) is settled too: grey outside a day, the day's color inside one. Tracker's behavior, layout (pass 1, grey boxes), and visual style (pass 2, Liquid Glass) are settled in `docs/tracker.md`, with mockups linked there: grey, with day colors only as dots on the calendar and Log. Next step: plan the overall layout and Settings (the tab bar, where Settings lives, whether the timer shows on every page, and the Settings screen) in a new doc.
+Planning only. No app code exists yet. The data model is settled in `docs/data.md`. Home's behavior, layout (pass 1), and visual style (pass 2, Liquid Glass) are settled in `docs/home.md`, with mockups linked there. Programs' behavior and layout (pass 1, grey boxes) are settled in `docs/programs.md`, with mockups linked there. Programs' visual style (pass 2, Liquid Glass) is settled too: grey outside a day, the day's color inside one. Tracker's behavior, layout (pass 1, grey boxes), and visual style (pass 2, Liquid Glass) are settled in `docs/tracker.md`, with mockups linked there: grey, with day colors only as dots on the calendar and Log. The overall layout and Settings (behavior and Liquid Glass style) are settled in `docs/layout.md`, with mockups linked there: three tabs, a glass timer bar above the tab bar while resting, and a Settings gear on Programs. Next step: decide which section to build first.
 
 ## Still undecided
 
 - Which features to keep, change, or add on each page
-- The overall layout: the tab bar, where Settings lives, and whether the timer appears on every page
-- How the Settings screen is designed
 - Which section to build first
 
 ## GymBuddy 1.0 reference

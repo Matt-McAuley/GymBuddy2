@@ -89,7 +89,7 @@ From `GYMBUDDY_1.md` and the screenshots in `../GymBuddy/assets/images/readme/`:
 
 - **First-time hints use TipKit,** Apple's built-in tip tool.
 - **The timer tip** ("Tap to pause · Swipe to skip · Hold to restart") points at the timer on the first rest ever. It comes back on later rests if ignored, up to 3 rests in total, and is gone for good once dismissed or once any timer gesture is used.
-- **Tips sync through iCloud,** so a new phone doesn't repeat them. A "Show tips again" switch in Settings resets them.
+- **Tips sync through iCloud,** so a new phone doesn't repeat them. A "Show tips again" button in Settings resets them (`docs/layout.md` "Settings screen").
 - **One tip covers all three gestures,** rather than one tip per gesture.
 
 ### Day list (bottom)
@@ -187,4 +187,4 @@ Pass 1 (layout) and pass 2 (visual style) are finished. Matt is happy with the 1
 - The kg wheel step (see "Logging sets")
 - Empty states: no program shows a welcome screen with a button to create the first program (`docs/programs.md` "Nothing empty"). Empty days and programs can't exist. The welcome screen's design is still open
 - What the Live Activity shows, including mid-superset
-- The overall layout (tab bar, where Settings lives, whether the timer shows on every page), planned in its own doc
+- The overall layout is settled in `docs/layout.md`. Off Home, a glass timer bar above the tab bar shows rest

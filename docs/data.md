@@ -190,7 +190,7 @@ Weights are stored in one internal unit and converted only for display. Stored n
 
 ### Settings
 
-Weight unit, rollover time, and default jump size for each unit.
+Weight unit, rollover time, and default jump size for each unit (2.5 lb and 1 kg). The full Settings list is in `docs/layout.md` "Settings screen".
 
 The rotation settings (week reset day, when the scheme changes, and whether empty weeks advance the scheme) live on each program's page, and the active program is chosen there with "Use this program" (`docs/programs.md` "Program page").
 
